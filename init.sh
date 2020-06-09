@@ -9,10 +9,11 @@ sh symlink.sh
 
 # set fish shell
 echo "/usr/local/bin/fish" >> /etc/shells
-chsh -s /usr/local/bin/fish
+sudo chsh -s /usr/local/bin/fish
 curl -L https://get.oh-my.fish | fish
 
 # Node.js
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 nvm install node
 nvm use node
 
