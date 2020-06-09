@@ -10,6 +10,7 @@ brew install gcc
 brew install gist
 brew install git
 brew install gnupg 
+brew install keybase
 brew install ocaml
 brew install opam
 brew install pinentry-mac
@@ -21,6 +22,7 @@ brew install wifi-password
 
 brew cask install github
 brew cask install google-chrome
+brew cask install keybase
 brew cask install slack
 brew cask install vagrant
 brew cask install virtualbox
