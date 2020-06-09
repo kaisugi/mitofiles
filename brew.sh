@@ -7,8 +7,8 @@ brew install docker
 brew install ffmpeg
 brew install fish
 brew install gcc
-brew install git
 brew install gist
+brew install git
 brew install gnupg 
 brew install ocaml
 brew install opam
