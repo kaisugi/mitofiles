@@ -12,6 +12,7 @@ brew install git
 brew install gnupg 
 brew install go
 brew install keybase
+brew install neovim
 brew install ocaml
 brew install opam
 brew install pinentry-mac
@@ -21,8 +22,10 @@ brew install tmux
 brew install wget
 brew install wifi-password
 
+# below are GUI apps
 brew cask install authy
 brew cask install deepl
+brew cask install docker
 brew cask install firefox
 brew cask install github
 brew cask install google-chrome

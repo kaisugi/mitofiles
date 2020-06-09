@@ -11,6 +11,9 @@ end
 # OCaml
 alias ocaml='rlwrap ocaml'
 
+# Vim
+alias vim='nvim'
+
 # various aliases
 alias l='ls -al'
 alias tarzip='tar czvf'
