@@ -8,6 +8,9 @@ if command -v pyenv 1>/dev/null 2>&1
   pyenv init - | source
 end
 
+# Rust
+set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+
 # OCaml
 alias ocaml='rlwrap ocaml'
 

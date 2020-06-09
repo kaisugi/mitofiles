@@ -8,4 +8,6 @@ dotfiles は[ネットの歴史のちっちゃな一部](http://tsukino-mito.ext
 cd ~
 git clone https://github.com/7ma7X/mitofiles.git dotfiles
 sh dotfiles/init.sh
+fish
+source config.fish
 ```
