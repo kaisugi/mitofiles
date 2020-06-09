@@ -1,12 +1,19 @@
 brew update
 brew upgrade
 
+brew install awsebcli
 brew install bat
 brew install docker
 brew install ffmpeg
 brew install fish
+brew install gcc
 brew install git
 brew install gist
+brew install gnupg 
+brew install ocaml
+brew install opam
+brew install pinentry-mac
+brew install pyenv
 brew install rbenv
 brew install tmux
 brew install wget
@@ -18,3 +25,5 @@ brew cask install slack
 brew cask install vagrant
 brew cask install virtualbox
 brew cask install visual-studio-code
+
+brew tap heroku/brew && brew install heroku
