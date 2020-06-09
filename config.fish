@@ -11,6 +11,9 @@ end
 # OCaml
 alias ocaml='rlwrap ocaml'
 
+# VSCode
+alias code="open -a Visual\ Studio\ Code.app"
+
 # Vim
 alias vim='nvim'
 
