@@ -18,8 +18,6 @@ nvm use node
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
 # Python
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 pyenv install 3.8.0
 pyenv global 3.8.0
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
