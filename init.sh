@@ -5,6 +5,8 @@ brew upgrade
 brew bundle
 
 # set symlink
+touch ~/.config/fish/config.fish
+touch ~/.config/nvim/init.vim
 sh symlink.sh
 
 # set fish shell
@@ -14,6 +16,9 @@ curl -L https://get.oh-my.fish | fish
 
 # Node.js
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install node
 nvm use node
 
@@ -27,8 +32,23 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 pip install jupyter numpy scipy matplotlib
 
 # Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Others
 echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 gpgconf --kill gpg-agent
+
+
+
+# check language versions
+echo "-----check language versions-----"
+gcc --version
+g++ --version
+go version
+ocaml --version
+
+node -v
+npm -v
+yarn versions
+python --version
+rustc --version
