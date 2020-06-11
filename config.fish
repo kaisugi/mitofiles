@@ -2,14 +2,14 @@
 set -x LSCOLORS gxfxcxdxbxegedabagacad
 
 # Python
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/bin $PATH
 if command -v pyenv 1>/dev/null 2>&1
   pyenv init - | source
 end
 
 # Rust
-set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+set -x PATH $HOME/.cargo/bin $PATH
 
 # OCaml
 alias ocaml='rlwrap ocaml'
