@@ -1,6 +1,9 @@
 # change directory color
 set -x LSCOLORS gxfxcxdxbxegedabagacad
 
+# Node.js
+set -x PATH (npm bin -g) $PATH
+
 # Python
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
