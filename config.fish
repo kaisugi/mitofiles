@@ -32,3 +32,6 @@ alias tarls='tar tzvf'
 
 # Others
 set -x GPG_TTY (tty)
+function want
+  curl -sd $argv https://want.now.sh | bash -s --
+end
