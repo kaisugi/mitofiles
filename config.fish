@@ -35,3 +35,8 @@ set -x GPG_TTY (tty)
 function want
   curl -sd $argv https://want.now.sh | bash -s --
 end
+
+function rewifi
+  networksetup -setairportpower en0 off
+  networksetup -setairportpower en0 on
+end
