@@ -20,6 +20,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 # Python
 pyenv install 3.8.0
 pyenv global 3.8.0
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
