@@ -30,6 +30,7 @@ brew 'wifi-password'
 
 # below are GUI apps
 cask 'authy'
+cask 'deepl'
 cask 'docker'
 cask 'firefox'
 cask 'github'
