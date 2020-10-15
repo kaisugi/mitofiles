@@ -1,14 +1,10 @@
 [user]
-	name = 7ma7X
+	name = HelloRusk
 	email = hellorusk1998@gmail.com
-	signingkey = 1C480362B31AB3399FA52A81DB77240577E1FDA7
 
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
-
-[commit]
-	gpgsign = true
 
 [gpg]
 	program = /usr/local/bin/gpg

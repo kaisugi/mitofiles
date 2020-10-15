@@ -6,17 +6,13 @@ brew bundle
 
 # set fish shell
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
-sudo chsh -s /usr/local/bin/fish
+chsh -s `which fish`
 curl -L https://get.oh-my.fish | fish
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 # Node.js
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-echo "lts/*" > .nvmrc
-nvm install
-nvm use
+fisher add jorgebucaran/nvm.fish
+nvm use latest
 
 # Yarn
 curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -24,6 +20,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 # Python
 pyenv install 3.8.0
 pyenv global 3.8.0
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
