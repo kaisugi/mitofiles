@@ -2,6 +2,7 @@ tap 'heroku/brew'
 
 brew 'awsebcli'
 brew 'bat'
+brew 'colordiff'
 brew 'docker'
 brew 'ffmpeg'
 brew 'fish'
