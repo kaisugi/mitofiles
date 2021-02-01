@@ -41,3 +41,6 @@ function rewifi
   networksetup -setairportpower en0 off
   networksetup -setairportpower en0 on
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '~/google-cloud-sdk/path.fish.inc' ]; . '~/google-cloud-sdk/path.fish.inc'; end
