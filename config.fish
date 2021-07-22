@@ -29,6 +29,7 @@ alias l='ls -al'
 alias tarzip='tar czvf'
 alias tarunzip='tar xzvf'
 alias tarls='tar tzvf'
+alias diff='colordiff'
 
 # Others
 set -x GPG_TTY (tty)
@@ -40,3 +41,6 @@ function rewifi
   networksetup -setairportpower en0 off
   networksetup -setairportpower en0 on
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+source ~/google-cloud-sdk/path.fish.inc
