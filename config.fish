@@ -5,11 +5,8 @@ set -x LSCOLORS gxfxcxdxbxegedabagacad
 set -x PATH (npm bin -g) $PATH
 
 # Python
-set -x PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/bin $PATH
-if command -v pyenv 1>/dev/null 2>&1
-  pyenv init - | source
-end
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
