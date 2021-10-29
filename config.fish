@@ -14,7 +14,6 @@ set -x PATH $HOME/.cargo/bin $PATH
 
 # use rlwrap
 alias ocaml='rlwrap ocaml'
-alias python='rlwrap python'
 
 # VSCode
 alias code="open -a Visual\ Studio\ Code.app"
