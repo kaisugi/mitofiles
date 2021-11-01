@@ -6,7 +6,7 @@ set -x PATH (npm bin -g) $PATH
 
 # Python
 set -x PYENV_ROOT $HOME/.pyenv
-set -x fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+set -x PATH $PYENV_ROOT/bin $PATH
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 
