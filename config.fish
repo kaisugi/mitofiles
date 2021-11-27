@@ -14,6 +14,7 @@ status is-interactive; and pyenv init - | source
 set -x PATH $HOME/.cargo/bin $PATH
 
 # use rlwrap
+alias python='rlwrap python'
 alias ocaml='rlwrap ocaml'
 
 # VSCode
@@ -39,3 +40,6 @@ function rewifi
   networksetup -setairportpower en0 off
   networksetup -setairportpower en0 on
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ksugi/google-cloud-sdk/path.fish.inc' ]; . '/Users/ksugi/google-cloud-sdk/path.fish.inc'; end
