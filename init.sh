@@ -31,7 +31,9 @@ gpgconf --kill gpg-agent
 
 
 # set symlink
+mkdir -p ~/.config/fish
 touch ~/.config/fish/config.fish
+mkdir -p ~/.config/nvim
 touch ~/.config/nvim/init.vim
 sh symlink.sh
 
