@@ -13,6 +13,10 @@ status is-interactive; and pyenv init - | source
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
 
+# Go
+set -x GOPATH $HOME/go
+set -x PATH $GOPATH/bin $PATH
+
 # use rlwrap
 alias python='rlwrap python'
 alias ocaml='rlwrap ocaml'
