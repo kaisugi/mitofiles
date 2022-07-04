@@ -18,7 +18,6 @@ set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
 # use rlwrap
-alias python='rlwrap python'
 alias ocaml='rlwrap ocaml'
 
 # VSCode
