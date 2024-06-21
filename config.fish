@@ -2,7 +2,7 @@
 set -x LSCOLORS gxfxcxdxbxegedabagacad
 
 # Node.js
-set -x PATH (npm bin -g) $PATH
+set -x PATH $HOME/.local/share/nvm/v20.11.0/bin $PATH
 
 # Python
 set -x PYENV_ROOT $HOME/.pyenv
@@ -38,7 +38,6 @@ set -x GPG_TTY (tty)
 function want
   curl -sd $argv https://want.now.sh | bash -s --
 end
-
 function rewifi
   networksetup -setairportpower en0 off
   networksetup -setairportpower en0 on
@@ -47,5 +46,10 @@ end
 alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
 
+set -x PATH /opt/homebrew/bin $PATH
+set -x PATH /Users/kaisugi/.local/bin $PATH
+alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew"
+set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ksugi/google-cloud-sdk/path.fish.inc' ]; . '/Users/ksugi/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/kaisugi/google-cloud-sdk/path.fish.inc' ]; . '/Users/kaisugi/google-cloud-sdk/path.fish.inc'; end
