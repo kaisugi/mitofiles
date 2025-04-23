@@ -20,9 +20,6 @@ set -x PATH $GOPATH/bin $PATH
 # use rlwrap
 alias ocaml='rlwrap ocaml'
 
-# VSCode
-alias code="open -a Visual\ Studio\ Code.app"
-
 # Vim
 alias vim='nvim'
 
@@ -53,3 +50,7 @@ set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kaisugi/google-cloud-sdk/path.fish.inc' ]; . '/Users/kaisugi/google-cloud-sdk/path.fish.inc'; end
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/kaisugi/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

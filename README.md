@@ -1,12 +1,10 @@
 # mitofiles
 
-![](https://github.com/HelloRusk/mitofiles/workflows/Checker/badge.svg)
-
-dotfiles は[ネットの歴史のちっちゃな一部](http://tsukino-mito.extrem.ne.jp/sound/%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E6%AD%B4%E5%8F%B2%E3%81%AE%E3%81%A1%E3%81%A3%E3%81%A1%E3%82%83%E3%81%AA%E4%B8%80%E9%83%A8)
+![](https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/bd287ec9cfb8453da4a32161e4e76ce1/liver-face_Mito_Tsukino.png.webp?w=1200&h=630&fit=fill&fill=solid)
 
 ```
 cd ~
-git clone https://github.com/HelloRusk/mitofiles.git dotfiles
+git clone https://github.com/kaisugi/mitofiles.git dotfiles
 sh dotfiles/init.sh
 sh dotfiles/mas.sh
 fish
