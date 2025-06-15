@@ -7,7 +7,7 @@
 	editor = nvim
 
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
 	
 [filter "lfs"]
 	process = git-lfs filter-process

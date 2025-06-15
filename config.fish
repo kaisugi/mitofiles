@@ -1,8 +1,7 @@
 # change directory color
 set -x LSCOLORS gxfxcxdxbxegedabagacad
 
-# Node.js
-set -x PATH $HOME/.local/share/nvm/v20.11.0/bin $PATH
+# Node.js (nvm will handle PATH automatically)
 
 # Python
 set -x PYENV_ROOT $HOME/.pyenv
@@ -17,8 +16,6 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
-# use rlwrap
-alias ocaml='rlwrap ocaml'
 
 # Vim
 alias vim='nvim'
@@ -44,13 +41,14 @@ alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
 
 set -x PATH /opt/homebrew/bin $PATH
-set -x PATH /Users/kaisugi/.local/bin $PATH
+set -x PATH $HOME/.local/bin $PATH
 alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew"
+eval (/opt/homebrew/bin/brew shellenv)
 set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kaisugi/google-cloud-sdk/path.fish.inc' ]; . '/Users/kaisugi/google-cloud-sdk/path.fish.inc'; end
+if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/Users/kaisugi/.rd/bin"
+set --export --prepend PATH "$HOME/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
