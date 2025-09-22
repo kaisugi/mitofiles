@@ -1,8 +1,6 @@
 # change directory color
 set -x LSCOLORS gxfxcxdxbxegedabagacad
 
-# Node.js (nvm will handle PATH automatically)
-
 # Python
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
@@ -16,7 +14,6 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
-
 # Vim
 alias vim='nvim'
 
@@ -29,16 +26,6 @@ alias diff='colordiff'
 
 # Others
 set -x GPG_TTY (tty)
-function want
-  curl -sd $argv https://want.now.sh | bash -s --
-end
-function rewifi
-  networksetup -setairportpower en0 off
-  networksetup -setairportpower en0 on
-end
-
-alias hex2dec="printf '%d\n'"
-alias dec2hex="printf '%x\n'"
 
 set -x PATH /opt/homebrew/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
