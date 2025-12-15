@@ -95,12 +95,7 @@ pyenv global 3.12.0 || {
     echo "Warning: Failed to set Python 3.12.0 as global"
 }
 
-echo "Installing Poetry..."
-if ! command -v poetry &> /dev/null; then
-    curl -sSL https://install.python-poetry.org | python3 - || {
-        echo "Warning: Failed to install Poetry"
-    }
-fi
+echo "uv is installed via Homebrew (see Brewfile)"
 
 # Rust
 echo "Installing Rust..."

@@ -32,6 +32,7 @@ brew 'tldr'
 brew 'tree'
 brew 'tmux'
 brew 'unar'
+brew 'uv'
 brew 'wget'
 brew 'wifi-password'
 
