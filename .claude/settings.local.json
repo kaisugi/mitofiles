@@ -9,7 +9,9 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(test:*)",
-      "Bash(brew search:*)"
+      "Bash(brew search:*)",
+      "Bash(mas search:*)",
+      "WebSearch"
     ],
     "deny": []
   }

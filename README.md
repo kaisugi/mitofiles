@@ -46,11 +46,18 @@ exec fish
 - **Rust** via rustup
 - **Go** development environment
 
-### Applications
+### Applications (via Homebrew)
 - Developer tools: Postman, Visual Studio Code
 - Browsers: Firefox, Chrome
-- Utilities: iTerm2, DeepL, Notion, Slack, Zoom
+- Utilities: iTerm2, DeepL, Slack, Zoom
 - Others: Spotify
+
+### Mac App Store Apps
+- **Kindle** - E-book reader
+- **ToyViewer** - Image viewer
+- **LINE** - Messaging app
+- **Speedtest** - Internet speed test
+- **Notion** - Notes and productivity
 
 ## Manual Steps
 
