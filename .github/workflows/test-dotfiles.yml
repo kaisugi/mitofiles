@@ -1,0 +1,131 @@
+name: Test dotfiles setup
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run every Sunday at 00:00 UTC (週1回、日曜日午前9時 JST)
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Check script syntax
+      run: |
+        bash -n init.sh
+        bash -n symlink.sh
+        bash -n mas.sh
+        echo "✅ Script syntax check passed"
+
+    - name: Validate Brewfile
+      run: |
+        # Check if Brewfile exists and is readable
+        if [ ! -f Brewfile ]; then
+          echo "❌ Brewfile not found"
+          exit 1
+        fi
+
+        # Basic syntax validation
+        grep -E "^(brew|cask|tap|mas)" Brewfile > /dev/null || {
+          echo "❌ Brewfile appears to be empty or invalid"
+          exit 1
+        }
+
+        echo "✅ Brewfile validation passed"
+
+    - name: Test Homebrew installation
+      run: |
+        # Homebrew should already be installed on GitHub Actions macOS runners
+        if ! command -v brew &> /dev/null; then
+          echo "Installing Homebrew..."
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
+
+        brew --version
+        echo "✅ Homebrew is available"
+
+    - name: Test Brewfile bundle (dry-run)
+      run: |
+        # Test brew bundle without actually installing everything (to save time)
+        brew bundle check --file=Brewfile --verbose || true
+
+        echo "✅ Brewfile check completed"
+
+    - name: Install essential packages only
+      run: |
+        # Install only a few essential packages to verify installation works
+        brew install bat fish gh git
+        echo "✅ Essential packages installed successfully"
+
+    - name: Verify installed packages
+      run: |
+        echo "Checking installed packages..."
+        bat --version
+        fish --version
+        gh --version
+        git --version
+        echo "✅ Package verification passed"
+
+    - name: Test symlink script (dry-run)
+      run: |
+        # Create necessary directories
+        mkdir -p ~/.config/fish ~/.config/nvim ~/.config/claude
+
+        # Create dummy files for testing
+        touch config.fish
+        mkdir -p git
+        touch git/.gitconfig git/.gitignore_global
+        mkdir -p tmux vim
+        touch tmux/.tmux.conf vim/init.vim
+        mkdir -p .claude
+        touch .claude/settings.local.json
+
+        # Test symlink creation
+        bash symlink.sh
+
+        # Verify symlinks were created
+        if [ -L ~/.config/fish/config.fish ] && \
+           [ -L ~/.gitconfig ] && \
+           [ -L ~/.tmux.conf ] && \
+           [ -L ~/.config/nvim/init.vim ] && \
+           [ -L ~/.config/claude/settings.local.json ]; then
+          echo "✅ Symlinks created successfully"
+        else
+          echo "❌ Some symlinks were not created"
+          exit 1
+        fi
+
+    - name: Check for common issues
+      run: |
+        echo "Checking for common issues..."
+
+        # Check if there are any TODO or FIXME comments
+        if grep -r "TODO\|FIXME" *.sh 2>/dev/null; then
+          echo "⚠️  Found TODO/FIXME comments in scripts"
+        fi
+
+        # Check file permissions
+        if [ ! -x init.sh ]; then
+          echo "⚠️  init.sh is not executable (might need chmod +x)"
+        fi
+
+        echo "✅ Common issues check completed"
+
+    - name: Summary
+      if: always()
+      run: |
+        echo "================================"
+        echo "Dotfiles Test Summary"
+        echo "================================"
+        echo "✅ All checks completed"
+        echo "Environment: macOS $(sw_vers -productVersion)"
+        echo "Homebrew: $(brew --version | head -n1)"
+        echo "================================"

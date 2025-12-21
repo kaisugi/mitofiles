@@ -2,6 +2,12 @@
 
 ![](https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/bd287ec9cfb8453da4a32161e4e76ce1/liver-face_Mito_Tsukino.png.webp?w=1200&h=630&fit=fill&fill=solid)
 
+<div align="center">
+
+[![Test dotfiles setup](https://github.com/kaisugi/mitofiles/actions/workflows/test-dotfiles.yml/badge.svg)](https://github.com/kaisugi/mitofiles/actions/workflows/test-dotfiles.yml)
+
+</div>
+
 ## Prerequisites
 
 - macOS (Apple Silicon or Intel)
@@ -41,11 +47,10 @@ exec fish
 - **Go** development environment
 
 ### Applications
-- Developer tools: GitHub Desktop, Postman, Visual Studio Code
-- Browsers: Firefox, Chrome, Microsoft Edge
+- Developer tools: Postman, Visual Studio Code
+- Browsers: Firefox, Chrome
 - Utilities: iTerm2, DeepL, Notion, Slack, Zoom
-- Authentication: Authy
-- Others: Spotify, Inkscape, The Unarchiver
+- Others: Spotify
 
 ## Manual Steps
 
