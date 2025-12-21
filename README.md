@@ -49,7 +49,7 @@ exec fish
 ### Applications (via Homebrew)
 - Developer tools: Postman, Visual Studio Code
 - Browsers: Firefox, Chrome
-- Utilities: iTerm2, DeepL, Slack, Zoom
+- Utilities: iTerm2, Slack, Zoom
 - Others: Spotify
 
 ### Mac App Store Apps

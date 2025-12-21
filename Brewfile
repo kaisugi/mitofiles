@@ -25,7 +25,6 @@ brew 'wget'
 brew 'wifi-password'
 
 # below are GUI apps
-cask 'deepl'
 cask 'firefox'
 cask 'google-chrome'
 cask 'iterm2'

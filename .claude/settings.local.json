@@ -11,7 +11,8 @@
       "Bash(test:*)",
       "Bash(brew search:*)",
       "Bash(mas search:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git config:*)"
     ],
     "deny": []
   }
