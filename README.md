@@ -10,8 +10,8 @@
 
 ## Prerequisites
 
-- macOS (Apple Silicon or Intel)
-- Command Line Tools for Xcode
+- macOS (Apple Silicon)
+- Command Line Tools for Xcode (includes Git)
 - Internet connection
 
 ## Quick Setup
@@ -37,7 +37,7 @@ exec fish
 
 ### Development Tools
 - **Claude Code** - CLI tool for Claude AI
-- **Git** with custom configuration
+- **Git configuration** - Custom settings via .gitconfig
 - **Neovim** with basic configuration
 - **tmux** with custom prefix
 - **Fish shell** with oh-my-fish and fisher
