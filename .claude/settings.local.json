@@ -12,7 +12,8 @@
       "Bash(brew search:*)",
       "Bash(mas search:*)",
       "WebSearch",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(brew install:*)"
     ],
     "deny": []
   }

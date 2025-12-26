@@ -49,13 +49,13 @@ exec fish
 ### Applications (via Homebrew)
 - Developer tools: Postman, Visual Studio Code
 - Browsers: Firefox, Chrome
-- Utilities: iTerm2, Slack, Zoom
+- Terminal: Ghostty
+- Utilities: Slack, Zoom
 - Others: Spotify
 
 ### Mac App Store Apps
 - **Kindle** - E-book reader
 - **ToyViewer** - Image viewer
-- **LINE** - Messaging app
 - **Speedtest** - Internet speed test
 - **Notion** - Notes and productivity
 

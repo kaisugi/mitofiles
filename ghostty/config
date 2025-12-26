@@ -1,0 +1,12 @@
+# Ghostty Configuration
+
+# Font settings
+font-family = Monaco
+font-size = 16
+
+# Window settings
+fullscreen = true
+confirm-close-surface = false
+
+# Theme settings
+theme = Builtin Dark

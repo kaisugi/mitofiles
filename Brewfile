@@ -26,7 +26,7 @@ brew 'wifi-password'
 # below are GUI apps
 cask 'firefox'
 cask 'google-chrome'
-cask 'iterm2'
+cask 'ghostty'
 cask 'postman'
 cask 'slack'
 cask 'spotify'
