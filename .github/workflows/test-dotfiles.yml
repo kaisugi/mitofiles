@@ -77,7 +77,7 @@ jobs:
     - name: Test symlink script (dry-run)
       run: |
         # Create necessary directories
-        mkdir -p ~/.config/fish ~/.config/nvim ~/.config/claude ~/.config/ghostty
+        mkdir -p ~/.config/fish ~/.config/nvim ~/.claude ~/.config/ghostty
 
         # Create dummy files for testing
         touch config.fish
@@ -85,8 +85,8 @@ jobs:
         touch git/.gitconfig git/.gitignore_global
         mkdir -p tmux vim
         touch tmux/.tmux.conf vim/init.vim
-        mkdir -p .claude
-        touch .claude/settings.local.json
+        mkdir -p claude
+        touch claude/settings.json claude/settings.local.json
         mkdir -p ghostty
         touch ghostty/config
 
@@ -98,7 +98,8 @@ jobs:
            [ -L ~/.gitconfig ] && \
            [ -L ~/.tmux.conf ] && \
            [ -L ~/.config/nvim/init.vim ] && \
-           [ -L ~/.config/claude/settings.local.json ] && \
+           [ -L ~/.claude/settings.json ] && \
+           [ -L ~/.claude/settings.local.json ] && \
            [ -L ~/.config/ghostty/config ]; then
           echo "✅ Symlinks created successfully"
         else
