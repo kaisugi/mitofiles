@@ -74,6 +74,18 @@ jobs:
         git --version
         echo "✅ Package verification passed"
 
+    - name: Test Claude Code native install
+      run: |
+        curl -fsSL https://claude.ai/install.sh | bash
+        if command -v claude &> /dev/null; then
+          echo "✅ Claude Code installed successfully"
+        elif [ -f ~/.local/bin/claude ]; then
+          echo "✅ Claude Code binary found at ~/.local/bin/claude"
+        else
+          echo "❌ Claude Code installation failed"
+          exit 1
+        fi
+
     - name: Test symlink script (dry-run)
       run: |
         # Create necessary directories

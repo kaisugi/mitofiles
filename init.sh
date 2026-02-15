@@ -42,6 +42,16 @@ brew bundle --file="${HOME}/dotfiles/Brewfile" || {
     exit 1
 }
 
+# Claude Code (native install, auto-updates enabled)
+echo "Installing Claude Code..."
+if ! command -v claude &> /dev/null; then
+    curl -fsSL https://claude.ai/install.sh | bash || {
+        echo "Warning: Failed to install Claude Code"
+    }
+else
+    echo "Claude Code already installed"
+fi
+
 # set fish shell
 FISH_PATH="/opt/homebrew/bin/fish"
 if ! grep -q "$FISH_PATH" /etc/shells; then

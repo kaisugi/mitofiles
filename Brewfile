@@ -1,6 +1,5 @@
 brew 'awscli'
 brew 'bat'
-brew 'claude-code'
 brew 'coreutils'
 brew 'ffmpeg'
 brew 'fish'
