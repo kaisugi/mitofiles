@@ -128,7 +128,7 @@ echo "Git configuration already set in .gitconfig"
 
 # set symlink
 echo "Creating symbolic links..."
-mkdir -p ~/.config/fish ~/.config/nvim ~/.config/claude ~/.config/ghostty
+mkdir -p ~/.config/fish ~/.config/nvim ~/.claude ~/.config/ghostty
 bash "${HOME}/dotfiles/symlink.sh" || {
     echo "Error: Failed to create symbolic links"
     exit 1

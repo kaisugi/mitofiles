@@ -36,7 +36,7 @@ exec fish
 - **mas** - Mac App Store command line interface
 
 ### Development Tools
-- **Claude Code** - CLI tool for Claude AI
+- **Claude Code** - CLI tool for Claude AI (settings and personal skills under `claude/` are symlinked into `~/.claude/`)
 - **Git configuration** - Custom settings via .gitconfig
 - **Neovim** with basic configuration
 - **tmux** with custom prefix

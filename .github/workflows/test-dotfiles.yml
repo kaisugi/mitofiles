@@ -99,6 +99,7 @@ jobs:
         touch tmux/.tmux.conf vim/init.vim
         mkdir -p claude
         touch claude/settings.json claude/settings.local.json
+        mkdir -p claude/skills
         mkdir -p ghostty
         touch ghostty/config
 
@@ -112,6 +113,7 @@ jobs:
            [ -L ~/.config/nvim/init.vim ] && \
            [ -L ~/.claude/settings.json ] && \
            [ -L ~/.claude/settings.local.json ] && \
+           [ -L ~/.claude/skills ] && \
            [ -L ~/.config/ghostty/config ]; then
           echo "✅ Symlinks created successfully"
         else
