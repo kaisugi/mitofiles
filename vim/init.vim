@@ -24,4 +24,4 @@ set backspace=indent,eol,start
 
 " かっこ表示
 set showmatch
-source $VIMRUNTIME/macros/matchit.vim
+" matchit is built in to Neovim and enabled by default; no need to source it

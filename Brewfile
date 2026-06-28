@@ -1,5 +1,6 @@
 brew 'awscli'
 brew 'bat'
+brew 'colordiff'
 brew 'coreutils'
 brew 'ffmpeg'
 brew 'fish'
