@@ -1,3 +1,5 @@
 {
-  "model": "opus"
+  "model": "opus",
+  "effortLevel": "xhigh",
+  "tui": "fullscreen"
 }
