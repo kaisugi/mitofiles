@@ -14,6 +14,11 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
+# Node.js
+# conf.d/nvm.fish は対話シェルでしか default を有効化しないので、ここで補う
+set -q nvm_default_version; or set -g nvm_default_version v24.18.0
+set -q nvm_current_version; or nvm use --silent $nvm_default_version
+
 # Vim
 alias vim='nvim'
 

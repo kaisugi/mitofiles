@@ -72,25 +72,24 @@ curl -L https://get.oh-my.fish | fish || {
 }
 
 echo "Installing fisher..."
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher || {
+fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher' || {
     echo "Warning: Failed to install fisher"
 }
 
 # Node.js
 echo "Installing Node.js via nvm..."
-fisher install jorgebucaran/nvm.fish || {
+fish -c 'fisher install jorgebucaran/nvm.fish' || {
     echo "Warning: Failed to install nvm.fish"
 }
-nvm install latest || {
+# nvm install は入れたバージョンを有効化するので、それをそのまま default として永続化する
+fish -c 'nvm install latest; and set --universal nvm_default_version $nvm_current_version' || {
     echo "Warning: Failed to install latest Node.js"
-}
-nvm use latest || {
-    echo "Warning: Failed to use latest Node.js"
 }
 
 # Yarn
 echo "Installing Yarn..."
-npm install -g yarn || {
+# この時点ではまだ symlink.sh 前で config.fish が無いため、nvm を明示的に有効化する
+fish -c 'nvm use --silent $nvm_default_version; and npm install -g yarn' || {
     echo "Warning: Failed to install Yarn"
 }
 
@@ -142,9 +141,9 @@ g++ --version 2>/dev/null || echo "g++: not installed"
 go version 2>/dev/null || echo "go: not installed"
 
 echo "Runtime versions:"
-node -v 2>/dev/null || echo "node: not installed"
-npm -v 2>/dev/null || echo "npm: not installed"
-yarn --version 2>/dev/null || echo "yarn: not installed"
+fish -c 'node -v' 2>/dev/null || echo "node: not installed"
+fish -c 'npm -v' 2>/dev/null || echo "npm: not installed"
+fish -c 'yarn --version' 2>/dev/null || echo "yarn: not installed"
 python --version 2>/dev/null || echo "python: not installed"
 rustc --version 2>/dev/null || echo "rustc: not installed"
 
