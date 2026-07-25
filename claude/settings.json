@@ -1,5 +1,8 @@
 {
   "model": "opus",
   "effortLevel": "xhigh",
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "permissions": {
+    "defaultMode": "auto"
+  }
 }
