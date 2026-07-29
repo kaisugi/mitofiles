@@ -36,6 +36,9 @@ set -x PATH /opt/homebrew/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew"
 eval (/opt/homebrew/bin/brew shellenv)
+# gcloud は未指定だと PATH 上の python3（= pyenv の shim）を使うので、
+# pyenv 側の Python が壊れると巻き込まれる。system python に固定しておく
+set -x CLOUDSDK_PYTHON /usr/bin/python3
 set -x CLOUDSDK_PYTHON_SITEPACKAGES 1
 
 # The next line updates PATH for the Google Cloud SDK.
