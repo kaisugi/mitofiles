@@ -52,6 +52,16 @@ else
     echo "Claude Code already installed"
 fi
 
+# OpenCode
+echo "Installing OpenCode..."
+if ! command -v opencode &> /dev/null; then
+    curl -fsSL https://opencode.ai/install | bash || {
+        echo "Warning: Failed to install OpenCode"
+    }
+else
+    echo "OpenCode already installed"
+fi
+
 # set fish shell
 FISH_PATH="/opt/homebrew/bin/fish"
 if ! grep -q "$FISH_PATH" /etc/shells; then
