@@ -52,6 +52,16 @@ else
     echo "Claude Code already installed"
 fi
 
+# Codex CLI (official standalone installer)
+echo "Installing Codex CLI..."
+if ! command -v codex &> /dev/null && [[ ! -x "${HOME}/.local/bin/codex" ]]; then
+    curl -fsSL https://chatgpt.com/codex/install.sh | sh || {
+        echo "Warning: Failed to install Codex CLI"
+    }
+else
+    echo "Codex CLI already installed"
+fi
+
 # OpenCode
 echo "Installing OpenCode..."
 if ! command -v opencode &> /dev/null; then
@@ -156,5 +166,12 @@ fish -c 'npm -v' 2>/dev/null || echo "npm: not installed"
 fish -c 'yarn --version' 2>/dev/null || echo "yarn: not installed"
 python --version 2>/dev/null || echo "python: not installed"
 rustc --version 2>/dev/null || echo "rustc: not installed"
+if command -v codex &> /dev/null; then
+    codex --version
+elif [[ -x "${HOME}/.local/bin/codex" ]]; then
+    "${HOME}/.local/bin/codex" --version
+else
+    echo "codex: not installed"
+fi
 
 echo "Setup completed successfully!"

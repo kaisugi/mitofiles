@@ -37,6 +37,7 @@ exec fish
 
 ### Development Tools
 - **Claude Code** - CLI tool for Claude AI (settings and personal skills under `claude/` are symlinked into `~/.claude/`)
+- **Codex CLI** - OpenAI coding agent (repository instructions are defined in [`AGENTS.md`](AGENTS.md))
 - **Git configuration** - Custom settings via .gitconfig
 - **Neovim** with basic configuration
 - **tmux** with custom prefix
@@ -66,6 +67,7 @@ Some configurations may require manual setup:
 2. **GPG**: Import your GPG keys if needed
 3. **Fish shell**: May require manual shell change if script fails
 4. **App Store**: Sign in to download apps via mas
+5. **Codex CLI**: Run `codex` once and sign in with ChatGPT
 
 ## Troubleshooting
 
