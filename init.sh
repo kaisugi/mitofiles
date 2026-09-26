@@ -62,14 +62,19 @@ else
     echo "Codex CLI already installed"
 fi
 
-# OpenCode
-echo "Installing OpenCode..."
-if ! command -v opencode &> /dev/null; then
-    curl -fsSL https://opencode.ai/install | bash || {
-        echo "Warning: Failed to install OpenCode"
+# OpenCode v2
+echo "Installing OpenCode v2..."
+current_version=""
+if command -v opencode &> /dev/null; then
+    current_version=$(opencode --version 2>/dev/null | grep -oE "[0-9]+\.[0-9]+\.[0-9]+" | head -n1)
+fi
+
+if [[ ! "$current_version" =~ ^2\. ]]; then
+    curl -fsSL https://opencode.ai/v2/install | bash -s -- --no-modify-path || {
+        echo "Warning: Failed to install OpenCode v2"
     }
 else
-    echo "OpenCode already installed"
+    echo "OpenCode v2 already installed"
 fi
 
 # set fish shell
@@ -172,6 +177,12 @@ elif [[ -x "${HOME}/.local/bin/codex" ]]; then
     "${HOME}/.local/bin/codex" --version
 else
     echo "codex: not installed"
+fi
+
+if command -v opencode &> /dev/null; then
+    opencode --version
+else
+    echo "opencode: not installed"
 fi
 
 echo "Setup completed successfully!"

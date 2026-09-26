@@ -98,6 +98,16 @@ jobs:
           exit 1
         fi
 
+    - name: Test OpenCode v2 install
+      run: |
+        curl -fsSL https://opencode.ai/v2/install | bash -s -- --no-modify-path
+        if [ -x ~/.opencode/bin/opencode ]; then
+          echo "✅ OpenCode v2 installed successfully"
+        else
+          echo "❌ OpenCode v2 installation failed"
+          exit 1
+        fi
+
     - name: Test symlink script (dry-run)
       run: |
         # Create necessary directories
