@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     - name: Check script syntax
       run: |
@@ -52,12 +52,24 @@ jobs:
         brew --version
         echo "✅ Homebrew is available"
 
-    - name: Test Brewfile bundle (dry-run)
+    - name: Check Brewfile entries are available
       run: |
-        # Test brew bundle without actually installing everything (to save time)
-        brew bundle check --file=Brewfile --verbose || true
+        # Fail on formulae/casks that Homebrew has disabled, warn on deprecated ones
+        # (without installing anything)
+        formulae=$(brew bundle list --file=Brewfile --formula)
+        casks=$(brew bundle list --file=Brewfile --cask)
+        status="$RUNNER_TEMP/brew-status.tsv"
+        {
+          brew info --json=v2 --formula $formulae | jq -r '.formulae[] | [.name, .disabled, .deprecated] | @tsv'
+          brew info --json=v2 --cask $casks | jq -r '.casks[] | [.token, .disabled, .deprecated] | @tsv'
+        } > "$status"
 
-        echo "✅ Brewfile check completed"
+        awk -F'\t' '$3 == "true" { print "::warning::" $1 " is deprecated in Homebrew" }' "$status"
+        if awk -F'\t' '$2 == "true" { print "::error::" $1 " is disabled in Homebrew"; bad = 1 } END { exit !bad }' "$status"; then
+          exit 1
+        fi
+
+        echo "✅ All Brewfile entries are available"
 
     - name: Install essential packages only
       run: |
@@ -73,6 +85,18 @@ jobs:
         gh --version
         git --version
         echo "✅ Package verification passed"
+
+    - name: Test Python install via uv
+      run: |
+        brew install uv
+        uv python install 3.14 --default
+        if [ -x ~/.local/bin/python ]; then
+          ~/.local/bin/python --version
+          echo "✅ Python installed via uv successfully"
+        else
+          echo "❌ Python installation via uv failed"
+          exit 1
+        fi
 
     - name: Test Claude Code native install
       run: |
@@ -120,7 +144,7 @@ jobs:
         mkdir -p tmux vim
         touch tmux/.tmux.conf vim/init.vim
         mkdir -p claude
-        touch claude/settings.json claude/settings.local.json
+        touch claude/settings.json
         mkdir -p claude/skills
         mkdir -p ghostty
         touch ghostty/config
@@ -134,7 +158,6 @@ jobs:
            [ -L ~/.tmux.conf ] && \
            [ -L ~/.config/nvim/init.vim ] && \
            [ -L ~/.claude/settings.json ] && \
-           [ -L ~/.claude/settings.local.json ] && \
            [ -L ~/.claude/skills ] && \
            [ -L ~/.config/ghostty/config ]; then
           echo "✅ Symlinks created successfully"
