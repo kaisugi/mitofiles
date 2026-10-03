@@ -41,11 +41,12 @@ exec fish
 - **Git configuration** - Custom settings via .gitconfig
 - **Neovim** with basic configuration
 - **tmux** with custom prefix
-- **Fish shell** with oh-my-fish and fisher
-- **Node.js** via nvm.fish
-- **Python** via pyenv (3.12.0)
+- **Fish shell** with fisher
+- **Node.js** (LTS) via nvm.fish
+- **Python** via uv (3.14)
 - **Rust** via rustup
 - **Go** development environment
+- **Google Cloud CLI** via Homebrew cask
 
 ### Applications (via Homebrew)
 - Developer tools: Postman, Visual Studio Code
@@ -64,10 +65,9 @@ exec fish
 
 Some configurations may require manual setup:
 1. **Git**: Update user email in `git/.gitconfig`
-2. **GPG**: Import your GPG keys if needed
-3. **Fish shell**: May require manual shell change if script fails
-4. **App Store**: Sign in to download apps via mas
-5. **Codex CLI**: Run `codex` once and sign in with ChatGPT
+2. **Fish shell**: May require manual shell change if script fails
+3. **App Store**: Sign in to download apps via mas
+4. **Codex CLI**: Run `codex` once and sign in with ChatGPT
 
 ## Troubleshooting
 

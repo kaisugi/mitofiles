@@ -6,9 +6,6 @@
 	excludesfile = ~/.gitignore_global
 	editor = nvim
 
-[gpg]
-	program = /opt/homebrew/bin/gpg
-	
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

@@ -91,45 +91,27 @@ if [[ "$SHELL" != "$FISH_PATH" ]]; then
     }
 fi
 
-echo "Installing oh-my-fish..."
-curl -L https://get.oh-my.fish | fish || {
-    echo "Warning: Failed to install oh-my-fish"
-}
-
 echo "Installing fisher..."
 fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher' || {
     echo "Warning: Failed to install fisher"
 }
 
 # Node.js
-echo "Installing Node.js via nvm..."
+echo "Installing Node.js LTS via nvm..."
 fish -c 'fisher install jorgebucaran/nvm.fish' || {
     echo "Warning: Failed to install nvm.fish"
 }
 # nvm install は入れたバージョンを有効化するので、それをそのまま default として永続化する
-fish -c 'nvm install latest; and set --universal nvm_default_version $nvm_current_version' || {
-    echo "Warning: Failed to install latest Node.js"
+fish -c 'nvm install lts; and set --universal nvm_default_version $nvm_current_version' || {
+    echo "Warning: Failed to install Node.js LTS"
 }
 
-# Yarn
-echo "Installing Yarn..."
-# この時点ではまだ symlink.sh 前で config.fish が無いため、nvm を明示的に有効化する
-fish -c 'nvm use --silent $nvm_default_version; and npm install -g yarn' || {
-    echo "Warning: Failed to install Yarn"
+# Python (uv is installed via Homebrew; see Brewfile)
+# --default で ~/.local/bin に python / python3 も置く。導入済みなら何もしない
+echo "Installing Python 3.14 via uv..."
+uv python install 3.14 --default || {
+    echo "Warning: Failed to install Python 3.14"
 }
-
-# Python
-echo "Installing Python 3.12.0..."
-if ! pyenv versions | grep -q "3.12.0"; then
-    pyenv install 3.12.0 || {
-        echo "Warning: Failed to install Python 3.12.0"
-    }
-fi
-pyenv global 3.12.0 || {
-    echo "Warning: Failed to set Python 3.12.0 as global"
-}
-
-echo "uv is installed via Homebrew (see Brewfile)"
 
 # Rust
 echo "Installing Rust..."
@@ -138,14 +120,6 @@ if ! command -v rustc &> /dev/null; then
         echo "Warning: Failed to install Rust"
     }
 fi
-
-# GPG configuration
-echo "Configuring GPG..."
-mkdir -p ~/.gnupg
-echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
-gpgconf --kill gpg-agent || {
-    echo "Warning: Failed to restart gpg-agent"
-}
 
 # Git configuration
 echo "Git configuration already set in .gitconfig"
@@ -168,8 +142,7 @@ go version 2>/dev/null || echo "go: not installed"
 echo "Runtime versions:"
 fish -c 'node -v' 2>/dev/null || echo "node: not installed"
 fish -c 'npm -v' 2>/dev/null || echo "npm: not installed"
-fish -c 'yarn --version' 2>/dev/null || echo "yarn: not installed"
-python --version 2>/dev/null || echo "python: not installed"
+"${HOME}/.local/bin/python" --version 2>/dev/null || echo "python: not installed"
 rustc --version 2>/dev/null || echo "rustc: not installed"
 if command -v codex &> /dev/null; then
     codex --version
